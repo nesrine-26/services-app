@@ -11,6 +11,7 @@ import {
   Clock,
   MapPin,
   Search,
+  Rose,
 } from "lucide-react";
 import Image from "next/image";
 
@@ -117,16 +118,12 @@ const Hero = () => {
         <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start p-6 md:p-10 flex-grow gap-12 lg:gap-0 mt-16 md:mt-24">
           {/* Right Area: Logo (Transitional Text) */}
           <div className="text-center lg:text-right flex flex-col items-center lg:items-end">
-            <div className="w-16 h-16 border-2 border-yellow-500 rotate-45 flex items-center justify-center mb-6 transition-transform hover:scale-110">
-              <div
-                className={`-rotate-45 ${currentSlide.logoColor} text-2xl transition-colors duration-500`}
-              >
-                💎
-              </div>
+            <div className="w-16 h-16 border-2 border-yellow-500 -rotate-45 flex items-center justify-center mb-6 transition-transform hover:scale-110">
+              <Rose />
             </div>
             {/* 7. TEXT & GRADIENT (Matching Image 1) */}
             <h1 className="text-4xl md:text-5xl font-bold mb-1 tracking-tight text-white transition-opacity duration-300">
-              قالب كريستال
+              قالب 
             </h1>
             <p className="text-yellow-400 text-sm tracking-widest font-bold">
               آية من الجمال

@@ -18,7 +18,7 @@ export default function About() {
           لطالما اشتقنا لزيارتك الأولى طويلا . . .
         </p>
  
-        <p className="text-[0.97rem] text-gray-700 leading-[2] text-justify max-w-[560px] mr-auto">
+        <p className="text-[0.97rem] text-gray-700 leading-[2] text-justify max-w-[560px] ">
           هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي
           القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة
           التي يبقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاً
