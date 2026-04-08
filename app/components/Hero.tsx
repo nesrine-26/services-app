@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const Hero = () => {
   return (
-    <section className=" relative flex-1 flex flex-col w-full overflow-hidden text-white font-sans h-screen">
+    <section className=" relative flex-1 flex flex-col w-full overflow-hidden text-white font-sans h-[calc(100vh-100px)]">
 <Image src="/bg.avif" alt="Background Image" fill className="object-cover object-[center_30%] opacity-20 relative z-10" />
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br w-screen  from-yellow-600 via-purple-900 to-blue-950  " />
