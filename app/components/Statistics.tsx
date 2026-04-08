@@ -42,7 +42,7 @@ const statsData = [
 
 const Statistics = () => {
   return (
-    <section className="min-h-screen bg-[#0f1035] text-white py-20 px-10 flex flex-col items-center">
+    <section className="min-h-7xl bg-[#0f1035] text-white py-20 px-10 flex flex-col items-center">
       {/* Header Section */}
       <div className="text-center mb-16">
         <h2 className="text-3xl font-bold mb-4">الإحصائيات</h2>

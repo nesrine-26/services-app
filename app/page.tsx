@@ -6,10 +6,13 @@ import LatestNewsSection from "./components/News";
 import VideoSection from "./components/VideoSection";
 import ImageGallery from "./components/Album";
 import Statistics from "./components/Statistics";
+import Infos from "./components/Infos";
+import Links from "./components/Links";
+import Contact from "./components/Contact";
 
 export default function Home() {
   return (
-    <div className="">
+    <div className="overflow-hidden w-full ">
       <Header />
       <Hero />
       <About />
@@ -17,6 +20,9 @@ export default function Home() {
       <VideoSection />
       <ImageGallery />
       <Statistics />
+      <Infos />
+      <Links />
+      <Contact />
     </div>
   );
 }

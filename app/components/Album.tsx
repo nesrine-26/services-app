@@ -37,65 +37,81 @@ export default function ImageGallery() {
   const [active, setActive] = useState(0);
 
   return (
-    <div className="relative flex w-full min-h-screen">
-      {/* Left */}
-      <div className="bg-[#f4c430] w-1/3  "></div>
+    <div
+      className="relative flex flex-col md:flex-row w-full min-h-screen overflow-hidden"
+      dir="rtl"
+    >
+      {/* Background Divs: Responsive Split */}
+      {/* Mobile: Top half yellow, bottom half blue | Desktop: Left 1/3 yellow, Right 2/3 blue */}
+      <div className="bg-[#f4c430] h-[50vh] md:h-full w-full md:w-1/3 transition-all duration-500"></div>
+      <div className="bg-[#1dd1a1] h-[50vh] md:h-full w-full md:flex-1 transition-all duration-500"></div>
 
-      {/* Right */}
-      <div className="bg-[#1dd1a1] flex-1  text-white"></div>
-      <div className="h-20 w-[75%] bg-tranparent gap-10  absolute flex justify-between rounded-2xl -translate-x-1/2 left-1/2">
-        <button className="relative z-10 font bold text-4xl">
-          البوم الصور
-        </button>
-        <button className="relative z-10 text-white  border px-5 py-0 my-3 rounded-xl font-bold ">
+      {/* Top Header Controls */}
+      <div className="absolute top-6 md:top-10 left-1/2 -translate-x-1/2 w-[90%] md:w-[75%] flex justify-between items-center z-30">
+        <h2 className="font-bold text-2xl md:text-4xl text-gray-900 md:text-white drop-shadow-sm">
+          ألبوم الصور
+        </h2>
+        <button className="bg-white/20 backdrop-blur-md border border-white text-white px-4 py-1.5 rounded-xl font-bold text-sm md:text-base hover:bg-white hover:text-gray-900 transition-all">
           المزيد من الصور
         </button>
       </div>
-      {/* Center Card */}
-      <div className="h-[75%] w-[75%] flex flex-col md:flex-row justify-between items-center bg-white gap-10 p-6 md:p-10 absolute  rounded-2xl -translate-x-1/2 left-1/2 top-1/2 -translate-y-1/2 shadow-xl">
-        {/* Thumbnails */}
-        <div className="flex gap-4 w-full h-full relative">
+
+      {/* Center Gallery Card */}
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[45%] md:-translate-y-1/2 w-[92%] md:w-[80%] lg:w-[75%] h-[65%] md:h-[70%] bg-white p-4 md:p-8 rounded-3xl shadow-2xl z-20">
+        {/* Accordion Container */}
+        <div className="flex flex-col md:flex-row gap-3 md:gap-4 w-full h-full">
           {slides.map((slide, index) => (
             <button
               key={slide.id}
               onClick={() => setActive(index)}
-              // 1. We move the expansion logic here.
-              // 2. 'flex-grow' handles the smooth expansion.
-              className={`relative h-full overflow-hidden  transition-all duration-700 ease-in-out z-10 
-        ${active === index ? "flex-[3] rounded-4xl" : "flex-1 border-white/10 rounded-full"}`}
+              className={`relative overflow-hidden transition-all duration-700 ease-in-out cursor-pointer
+                ${
+                  active === index
+                    ? "flex-[5] md:flex-[4] rounded-2xl md:rounded-[40px]"
+                    : "flex-1 rounded-xl md:rounded-full opacity-70 md:opacity-100"
+                }
+                h-full w-full
+              `}
             >
-              {/* Image fills the button entirely */}
+              {/* Image Layer */}
               <img
                 src={slide.src}
                 alt={slide.title}
                 className="absolute inset-0 w-full h-full object-cover"
               />
 
-              {/* Overlay for text/details (only visible when active) */}
+              {/* Dark Gradient Overlay */}
               <div
-                className={`absolute inset-0 bg-black/30 transition-opacity duration-500 
-        ${active === index ? "opacity-100" : "opacity-10"}`}
+                className={`absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent transition-opacity duration-500 
+                ${active === index ? "opacity-100" : "opacity-0"}`}
               />
 
-              {/* Badge/Index */}
+              {/* Number Badge */}
               <div
-                className={`${active === index ? "absolute bottom-5 right-5" : "absolute bottom-10 z-10 left-1/2 -translate-1/2 "}`}
+                className={`absolute transition-all duration-700
+                ${
+                  active === index
+                    ? "bottom-4 right-4 md:bottom-8 md:right-8"
+                    : "bottom-1/2 right-1/2 translate-x-1/2 translate-y-1/2 md:bottom-10 md:translate-y-0"
+                }`}
               >
                 <div
-                  className={`w-10 h-10 flex items-center justify-center rounded-full  text-white font-bold shadow-lg `}
+                  className="w-8 h-8 md:w-12 md:h-12 flex items-center justify-center rounded-full text-white font-bold shadow-lg text-sm md:text-xl"
                   style={{ backgroundColor: slide.dot }}
                 >
                   {index + 1}
                 </div>
               </div>
 
-              {/* Optional Title - only shows when expanded */}
+              {/* Content Panel (Active Only) */}
               {active === index && (
-                <div className="absolute bottom-5 left-5 text-right animate-fadeIn">
-                  <h3 className="text-white font-bold text-xl">
+                <div className="absolute bottom-4 left-4 md:bottom-8 md:left-8 text-right pl-4 pr-2 animate-in fade-in slide-in-from-bottom-3 duration-700">
+                  <h3 className="text-white font-bold text-lg md:text-2xl mb-1 drop-shadow-md">
                     {slide.title}
                   </h3>
-                  <p className="text-white">{slide.description}</p>
+                  <p className="text-white/90 text-xs md:text-base line-clamp-2 md:line-clamp-none max-w-xs">
+                    {slide.description}
+                  </p>
                 </div>
               )}
             </button>
