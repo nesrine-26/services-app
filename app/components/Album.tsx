@@ -60,38 +60,47 @@ export default function ImageGallery() {
       {/* Center Card */}
       <div className="h-[75%] w-[75%] flex flex-col md:flex-row justify-between items-center bg-white gap-10 p-6 md:p-10 absolute  rounded-2xl -translate-x-1/2 left-1/2 top-1/2 -translate-y-1/2 shadow-xl">
 
-       
      
-
-     
-        <div className="w-full  h-full md:w-1/2">
-          <img
-            src={slides[active].src}
-            alt={slides[active].title}
-            className="rounded-[10%] w-full h-full  object-cover"
-          />
-        </div>
-
         {/* Thumbnails */}
-        <div className="grid grid-cols-4 gap-4 w-full   h-full md:w-1/2">
-          {slides.map((slide, index) => (
-            <button
-              key={slide.id}
-              onClick={() => setActive(index)}
-              className={`rounded-full overflow-hidden border-4 transition ${
-                active === index
-                  ? "border-black/20 border-dashed scale-105"
-                  : "border-transparent opacity-70"
-              }`}
-            >
-              <img
-                src={slide.src}
-                alt={slide.title}
-                className="w-full h-full object-cover"
-              />
-            </button>
-          ))}
+<div className="flex gap-4 w-full h-full relative"> 
+  {slides.map((slide, index) => (
+    <button
+      key={slide.id}
+      onClick={() => setActive(index)}
+      // 1. We move the expansion logic here. 
+      // 2. 'flex-grow' handles the smooth expansion.
+      className={`relative h-full overflow-hidden  transition-all duration-700 ease-in-out z-10 
+        ${active === index ? "flex-[3] rounded-4xl" : "flex-1 border-white/10 rounded-full"}`}
+    >
+      {/* Image fills the button entirely */}
+      <img
+        src={slide.src}
+        alt={slide.title}
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+
+      {/* Overlay for text/details (only visible when active) */}
+      <div className={`absolute inset-0 bg-black/30 transition-opacity duration-500 
+        ${active === index ? "opacity-100" : "opacity-10"}`} 
+      />
+
+      {/* Badge/Index */}
+      <div className={`${active === index ? "absolute bottom-5 right-5" : "absolute bottom-10 z-10 left-1/2 -translate-1/2 "}` } >
+        <div className={`w-10 h-10 flex items-center justify-center rounded-full  text-white font-bold shadow-lg `} style={{backgroundColor: slide.dot }} >
+          {index + 1}
         </div>
+      </div>
+
+      {/* Optional Title - only shows when expanded */}
+      {active === index && (
+        <div className="absolute bottom-5 left-5 text-right animate-fadeIn">
+           <h3 className="text-white font-bold text-xl">{slide.title}</h3>
+           <p className="text-white">{slide.description}</p>
+        </div>
+      )}
+    </button>
+  ))}
+</div>
       </div>
     </div>
       
