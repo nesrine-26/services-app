@@ -5,6 +5,7 @@ import About from "./components/About";
 import LatestNewsSection from "./components/News";
 import VideoSection from "./components/VideoSection";
 import ImageGallery from "./components/Album";
+import Statistics from "./components/Statistics";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <LatestNewsSection />
       <VideoSection />
       <ImageGallery />
+      <Statistics />
     </div>
   );
 }

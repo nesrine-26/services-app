@@ -1,26 +1,40 @@
-'use client';
-import { useState } from 'react';
-import { Search, Menu, Flag } from 'lucide-react'; // Using lucide-react for icons
+"use client";
+import { useState } from "react";
+import { Search, Menu, Flag } from "lucide-react"; // Using lucide-react for icons
 
 const Header = () => {
-    const [active,setActive] = useState("من نحن");
+  const [active, setActive] = useState("من نحن");
   return (
-    <header className="w-full bg-gradient-to-r from-purple-700 via-indigo-800 to-teal-600 p-4 shadow-lg text-white font-sans" >
+    <header className="w-full bg-gradient-to-r from-purple-700 via-indigo-800 to-teal-600 p-4 shadow-lg text-white font-sans">
       <div className=" mx-10 flex items-center justify-between gap-4">
-        
         {/* Right Side: Navigation Links */}
         <nav className="hidden lg:flex items-center gap-6 text-sm font-medium">
-          <a href="#" className="flex items-center gap-1 bg-pink-600 px-3 py-1.5 rounded-md hover:bg-pink-700 transition">
+          <a
+            href="#"
+            className="flex items-center gap-1 bg-pink-600 px-3 py-1.5 rounded-md hover:bg-pink-700 transition"
+          >
             <Flag size={16} />
             من نحن
           </a>
-          <a href="#" className="hover:text-gray-200 transition">الأخبار</a>
-          <a href="#" className="hover:text-gray-200 transition">إحصائيات الموقع</a>
-          <a href="#" className="hover:text-gray-200 transition">ألبوم الصور</a>
-          <a href="#" className="hover:text-gray-200 transition">روابط سريعة</a>
-          <a href="#" className="hover:text-gray-200 transition">الفيديو</a>
-          <a href="#" className="hover:text-gray-200 transition">خدماتنا</a>
-          
+          <a href="#" className="hover:text-gray-200 transition">
+            الأخبار
+          </a>
+          <a href="#" className="hover:text-gray-200 transition">
+            إحصائيات الموقع
+          </a>
+          <a href="#" className="hover:text-gray-200 transition">
+            ألبوم الصور
+          </a>
+          <a href="#" className="hover:text-gray-200 transition">
+            روابط سريعة
+          </a>
+          <a href="#" className="hover:text-gray-200 transition">
+            الفيديو
+          </a>
+          <a href="#" className="hover:text-gray-200 transition">
+            خدماتنا
+          </a>
+
           <button className="flex items-center gap-1 hover:text-gray-200 transition">
             القائمة
             <Menu size={16} />
@@ -40,7 +54,6 @@ const Header = () => {
             </div>
           </div>
         </div>
-
       </div>
     </header>
   );
