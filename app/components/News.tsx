@@ -47,7 +47,7 @@ export default function LatestNewsSection() {
       <h3 className="text-center mb-10 text-white font-bold text-3xl ">
         احدث الاخبار{" "}
       </h3>
-      <div className="flex items-center justify-center  gap-8 min-w-96 flex-wrap ">
+      <div className="flex items-center justify-center  gap-8  flex-wrap ">
         {newsCards.map((card) => (
           <div className=" p-2 border border-dashed rounded-full w-fit h-[75%]">
             <div className="bg-white rounded-full h-full p-2 justify-center">
