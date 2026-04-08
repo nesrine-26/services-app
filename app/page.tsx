@@ -3,6 +3,8 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import LatestNewsSection from "./components/News";
+import VideoSection from "./components/VideoSection";
+import ImageGallery from "./components/Album";
 
 export default function Home() {
   return (
@@ -11,6 +13,8 @@ export default function Home() {
       <Hero />
       <About />
       <LatestNewsSection />
+      <VideoSection />
+      <ImageGallery />
     </div>
   );
 }
