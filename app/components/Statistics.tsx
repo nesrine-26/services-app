@@ -55,8 +55,8 @@ const Statistics = () => {
       <div className="flex flex-wrap justify-center gap-8 max-w-7xl">
         {statsData.map((stat, index) => (
           <motion.div
-          initial={{width:0}}
-          whileInView={{width:220}}
+          initial={{opacity:0}}
+          whileInView={{opacity:1}}
           transition={{duration:0.5, ease:"easeInOut"}}
             key={stat.id}
             style={{ transitionDelay: `${index * 100}ms` }}

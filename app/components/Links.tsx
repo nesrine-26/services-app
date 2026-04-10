@@ -47,8 +47,8 @@ const Links = () => {
 
         <div className="absolute inset-0 flex items-center justify-center p-4 md:p-6">
           <motion.h2 
-          initial={{width:0}}
-          whileInView={{width:"20%"}}
+          initial={{opacity:0}}
+          whileInView={{opacity:1}}
           transition={{duration:0.8, ease:"easeInOut"}}
           className="text-white border-2 border-white rounded-full px-6 py-2 md:px-8 md:py-3 text-lg md:text-xl font-bold backdrop-blur-md shadow-2xl text-center whitespace-nowrap animate-pulse">
             روابط سريعة
@@ -94,8 +94,8 @@ const Links = () => {
           <div className="w-full xl:w-1/2 flex flex-col gap-3 order-2">
             {services.map((service, index) => (
               <motion.div
-              initial={{x:-50}}
-          whileInView={{x:0}}
+              initial={{y:50}}
+          whileInView={{y:0}}
           transition={{duration:0.5, ease:"easeInOut"}}
                 key={index}
                 className={`group flex items-center gap-4 p-3 border border-cyan-500/20 bg-white/5 hover:bg-white/10 dark:hover:bg-slate-800 transition-all cursor-pointer rounded-sm transform ${mounted ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"}`}
