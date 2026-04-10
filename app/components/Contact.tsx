@@ -1,6 +1,6 @@
 import React from "react";
 import { MapPin, Phone, Mail, Quote } from "lucide-react";
-
+import { motion } from "framer-motion";
 const Contact = () => {
   const quickLinks = [
     "الرئيسية",

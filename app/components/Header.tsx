@@ -1,8 +1,21 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Search, Menu, Flag, X, Newspaper, BarChart3, Image, Video, Briefcase, Link, Sun, Moon } from "lucide-react";
+import {
+  Search,
+  Menu,
+  Flag,
+  X,
+  Newspaper,
+  BarChart3,
+  Image,
+  Video,
+  Briefcase,
+  Link,
+  Sun,
+  Moon,
+} from "lucide-react";
 import { useTheme } from "next-themes";
-
+import { motion } from "framer-motion";
 const Header = ({ darkTheme = false }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [active, setActive] = useState("");
@@ -18,7 +31,11 @@ const Header = ({ darkTheme = false }) => {
   const navLinks = [
     { name: "من نحن", href: "#about", icon: <Flag size={16} /> },
     { name: "الأخبار", href: "#news", icon: <Newspaper size={16} /> },
-    { name: "إحصائيات الموقع", href: "#statistics", icon: <BarChart3 size={16} /> },
+    {
+      name: "إحصائيات الموقع",
+      href: "#statistics",
+      icon: <BarChart3 size={16} />,
+    },
     { name: "ألبوم الصور", href: "#album", icon: <Image size={16} /> },
     { name: "روابط سريعة", href: "#links", icon: <Link size={16} /> },
     { name: "الفيديو", href: "#video", icon: <Video size={16} /> },
@@ -30,9 +47,10 @@ const Header = ({ darkTheme = false }) => {
   return (
     <header
       className={`w-full sticky top-0 z-50 transition-colors duration-300 shadow-lg font-sans
-        ${isDark 
-          ? "bg-slate-950 text-slate-100 border-b border-slate-800" 
-          : "bg-gradient-to-r from-purple-700 via-indigo-800 to-teal-600 text-white"
+        ${
+          isDark
+            ? "bg-slate-950 text-slate-100 border-b border-slate-800"
+            : "bg-gradient-to-r from-purple-700 via-indigo-800 to-teal-600 text-white"
         }`}
     >
       <div className="mx-4 md:mx-10 flex items-center justify-between py-4 gap-4">
@@ -44,13 +62,17 @@ const Header = ({ darkTheme = false }) => {
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
-          
+
           {/* Mobile Theme Icon (Visible next to hamburger) */}
-          <button 
+          <button
             onClick={toggleTheme}
             className="p-2 rounded-full hover:bg-white/10 transition"
           >
-            {isDark ? <Sun size={20} className="text-yellow-400" /> : <Moon size={20} />}
+            {isDark ? (
+              <Sun size={20} className="text-yellow-400" />
+            ) : (
+              <Moon size={20} />
+            )}
           </button>
         </div>
 
@@ -62,20 +84,26 @@ const Header = ({ darkTheme = false }) => {
               href={link.href}
               onClick={() => setActive(link.name)}
               className={`flex justify-center items-center gap-2 transition-all duration-200
-                ${active === link.name 
-                  ? (isDark ? 'bg-indigo-600 text-white' : 'bg-pink-600') + ' px-4 py-2 rounded-md shadow-md' 
-                  : 'hover:text-cyan-300'
+                ${
+                  active === link.name
+                    ? (isDark ? "bg-indigo-600 text-white" : "bg-pink-600") +
+                      " px-4 py-2 rounded-md shadow-md"
+                    : "hover:text-cyan-300"
                 }`}
             >
               {active === link.name ? link.icon : ""}
               {link.name}
             </a>
           ))}
-          <button 
+          <button
             onClick={toggleTheme}
             className="p-2 rounded-full hover:bg-white/10 transition ml-4"
           >
-            {isDark ? <Sun size={20} className="text-yellow-400" /> : <Moon size={20} />}
+            {isDark ? (
+              <Sun size={20} className="text-yellow-400" />
+            ) : (
+              <Moon size={20} />
+            )}
           </button>
         </nav>
 
@@ -86,13 +114,16 @@ const Header = ({ darkTheme = false }) => {
               type="text"
               placeholder="أدخل كلمة البحث هنا . . ."
               className={`w-full border rounded-full py-2 pr-4 pl-10 focus:outline-none focus:ring-2 transition text-sm
-                ${isDark 
-                  ? "bg-slate-900 border-slate-700 text-slate-200 placeholder-slate-500 focus:ring-indigo-500" 
-                  : "bg-white/20 border-white/30 text-white placeholder-white/70 focus:bg-white/30 focus:ring-cyan-400"
+                ${
+                  isDark
+                    ? "bg-slate-900 border-slate-700 text-slate-200 placeholder-slate-500 focus:ring-indigo-500"
+                    : "bg-white/20 border-white/30 text-white placeholder-white/70 focus:bg-white/30 focus:ring-cyan-400"
                 }`}
             />
-            <div className={`absolute left-1 p-2 rounded-full cursor-pointer transition
-              ${isDark ? "bg-indigo-600 hover:bg-indigo-500" : "bg-indigo-900 hover:bg-indigo-950"}`}>
+            <div
+              className={`absolute left-1 p-2 rounded-full cursor-pointer transition
+              ${isDark ? "bg-indigo-600 hover:bg-indigo-500" : "bg-indigo-900 hover:bg-indigo-950"}`}
+            >
               <Search size={16} className="text-white" />
             </div>
           </div>

@@ -1,7 +1,7 @@
 "use client";
 import { Link2 } from "lucide-react";
 import React, { useEffect, useState } from "react";
-
+import { motion } from "framer-motion";
 const Infos = () => {
   const [mounted, setMounted] = useState(false);
 
@@ -24,7 +24,7 @@ const Infos = () => {
       id="services"
     >
       {/* Left Section: Text and Grid */}
-      <div 
+      <div
         className={`w-full lg:w-1/2 p-6 md:p-12 lg:p-16 flex flex-col justify-center transition-all duration-1000 transform ${
           mounted ? "translate-x-0 opacity-100" : "-translate-x-20 opacity-0"
         }`}
@@ -50,7 +50,9 @@ const Infos = () => {
               key={index}
               style={{ transitionDelay: `${index * 100}ms` }}
               className={`border-2 border-dashed border-gray-300 dark:border-slate-800 rounded-full flex items-center justify-between p-1 pl-6 group hover:border-pink-500 dark:hover:border-indigo-500 transition-all transform ${
-                mounted ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
+                mounted
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-5 opacity-0"
               }`}
             >
               <span
@@ -78,7 +80,7 @@ const Infos = () => {
 
         {/* Floating Card Container with Entrance Animation */}
         <div className="relative z-10 flex items-center justify-center h-full p-4 md:p-12 lg:p-20">
-          <div 
+          <div
             className={`bg-white dark:bg-slate-900/90 dark:backdrop-blur-xl w-full max-w-2xl p-6 md:p-10 shadow-2xl rounded-sm flex flex-col transition-all duration-1000 delay-500 transform ${
               mounted ? "scale-100 opacity-100" : "scale-90 opacity-0"
             } border border-transparent dark:border-slate-800`}

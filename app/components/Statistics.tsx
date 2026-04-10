@@ -7,13 +7,23 @@ import {
   Building2,
   Briefcase,
 } from "lucide-react";
-
+import { motion } from "framer-motion";
 const statsData = [
   { id: 1, icon: <Globe size={60} />, value: "3270", label: "عدد العملاء" },
-  { id: 2, icon: <GraduationCap size={60} />, value: "75", label: "سنوات الخبرة" },
+  {
+    id: 2,
+    icon: <GraduationCap size={60} />,
+    value: "75",
+    label: "سنوات الخبرة",
+  },
   { id: 3, icon: <Users size={60} />, value: "1300", label: "عدد الموظفين" },
   { id: 4, icon: <Building2 size={60} />, value: "10", label: "فروع الشركة" },
-  { id: 5, icon: <Briefcase size={60} />, value: "150", label: "المشاريع المنفذة" },
+  {
+    id: 5,
+    icon: <Briefcase size={60} />,
+    value: "150",
+    label: "المشاريع المنفذة",
+  },
 ];
 
 const Statistics = () => {
@@ -24,13 +34,17 @@ const Statistics = () => {
   }, []);
 
   return (
-    <section 
-      id="statistics" 
+    <section
+      id="statistics"
       className="min-h-7xl bg-[#0f1035] dark:bg-slate-950 text-white py-20 px-10 flex flex-col items-center transition-colors duration-500"
     >
       {/* Header Section */}
-      <div className={`text-center mb-16 transition-all duration-1000 transform ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-        <h2 className="text-3xl font-bold mb-4 dark:text-slate-100">الإحصائيات</h2>
+      <div
+        className={`text-center mb-16 transition-all duration-1000 transform ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+      >
+        <h2 className="text-3xl font-bold mb-4 dark:text-slate-100">
+          الإحصائيات
+        </h2>
         <p className="text-yellow-500 dark:text-amber-400 text-lg">
           أحياناً تختصر لغة الأرقام الكثير من الكلمات والعبارات الإنشائية
         </p>
@@ -51,7 +65,9 @@ const Statistics = () => {
             </div>
 
             {/* Value */}
-            <div className="text-3xl font-bold dark:text-white">{stat.value}</div>
+            <div className="text-3xl font-bold dark:text-white">
+              {stat.value}
+            </div>
 
             {/* Label Button-style */}
             <div className="w-full py-2 px-4 border border-white/40 dark:border-slate-700 rounded-full text-center text-sm mb-4 font-medium dark:bg-slate-800/50">
@@ -59,9 +75,10 @@ const Statistics = () => {
             </div>
 
             {/* Bottom Accent Bar */}
-            <div className={`absolute bottom-4 left-1/2 -translate-x-1/2 w-1/2 h-1.5 rounded-full shadow-lg transition-colors
-              ${index % 2 === 0 ? "bg-orange-500 shadow-orange-500/50" : "bg-pink-500 shadow-pink-500/50"}`}>
-            </div>
+            <div
+              className={`absolute bottom-4 left-1/2 -translate-x-1/2 w-1/2 h-1.5 rounded-full shadow-lg transition-colors
+              ${index % 2 === 0 ? "bg-orange-500 shadow-orange-500/50" : "bg-pink-500 shadow-pink-500/50"}`}
+            ></div>
           </div>
         ))}
       </div>

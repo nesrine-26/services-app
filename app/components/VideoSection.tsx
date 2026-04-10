@@ -1,7 +1,7 @@
 "use client";
 import { Pause, PlayIcon } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
-
+import { motion } from "framer-motion";
 const VideoSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
@@ -24,7 +24,10 @@ const VideoSection = () => {
   };
 
   return (
-    <section
+    <motion.section
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
       className="relative flex flex-col lg:flex-row justify-center items-center gap-10 lg:gap-x-16 min-h-screen w-full px-6 py-12 overflow-hidden bg-white dark:bg-slate-950 transition-colors duration-500"
       id="video"
     >
@@ -36,7 +39,7 @@ const VideoSection = () => {
       />
 
       {/* Video Container Area with Entrance Animation */}
-      <div 
+      <div
         className={`relative w-full md:w-3/4 lg:w-[45%] aspect-video bg-white/40 dark:bg-slate-800/40 p-3 md:p-5 rounded-2xl z-10 transition-all duration-1000 transform
           ${mounted ? "translate-x-0 opacity-100" : "-translate-x-20 opacity-0"}
           shadow-[8px_8px_0px_rgba(0,0,0,0.2)] md:shadow-[15px_15px_0px_rgba(0,0,0,0.3)] dark:md:shadow-[15px_15px_0px_rgba(79,70,229,0.2)]`}
@@ -61,14 +64,18 @@ const VideoSection = () => {
             {playing ? (
               <Pause size={28} />
             ) : (
-              <PlayIcon fill="white" size={28} className="group-hover:scale-110 transition-transform" />
+              <PlayIcon
+                fill="white"
+                size={28}
+                className="group-hover:scale-110 transition-transform"
+              />
             )}
           </button>
         </div>
       </div>
 
       {/* Content Area with Staggered Entrance */}
-      <div 
+      <div
         className={`w-full lg:w-[40%] text-center lg:text-right z-10 transition-all duration-1000 delay-300 transform
           ${mounted ? "translate-x-0 opacity-100" : "translate-x-20 opacity-0"}`}
       >
@@ -96,7 +103,7 @@ const VideoSection = () => {
           </button>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

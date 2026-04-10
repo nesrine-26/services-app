@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-
+import { motion } from "framer-motion";
 const slides = [
   {
     id: 1,
@@ -47,11 +47,13 @@ export default function ImageGallery() {
       id="album"
     >
       {/* Background Divs: Professional Dark Mode Colors */}
-      <div className="bg-[#f4c430] dark:bg-slate-900 h-[50vh] md:h-full w-full md:w-1/3 transition-all duration-700"></div>
-      <div className="bg-[#1dd1a1] dark:bg-indigo-950 h-[50vh] md:h-full w-full md:flex-1 transition-all duration-700"></div>
+      <div className="bg-[#f4c430] dark:bg-slate-900 h-screen  w-full  transition-all duration-700"></div>
+      <div className="bg-[#1dd1a1] dark:bg-indigo-950 h-screen  w-full  transition-all duration-700"></div>
 
       {/* Top Header Controls */}
-      <div className={`absolute top-6 md:top-10 left-1/2 -translate-x-1/2 w-[90%] md:w-[75%] flex justify-between items-center z-30 transition-all duration-1000 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"}`}>
+      <div
+        className={`absolute top-6 md:top-10 left-1/2 -translate-x-1/2 w-[90%] md:w-[75%] flex justify-between items-center z-30 transition-all duration-1000 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"}`}
+      >
         <h2 className="font-bold text-2xl md:text-4xl text-gray-900 dark:text-white drop-shadow-sm">
           ألبوم الصور
         </h2>
@@ -61,7 +63,9 @@ export default function ImageGallery() {
       </div>
 
       {/* Center Gallery Card */}
-      <div className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[45%] md:-translate-y-1/2 w-[92%] md:w-[80%] lg:w-[75%] h-[65%] md:h-[70%] bg-white dark:bg-slate-800 p-4 md:p-8 rounded-3xl shadow-2xl z-20 transition-all duration-1000 ${mounted ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}>
+      <div
+        className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[45%] md:-translate-y-1/2 w-[92%] md:w-[80%] lg:w-[75%] h-[65%] md:h-[70%] bg-white dark:bg-slate-800 p-4 md:p-8 rounded-3xl shadow-2xl z-20 transition-all duration-1000 ${mounted ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
+      >
         {/* Accordion Container */}
         <div className="flex flex-col md:flex-row gap-3 md:gap-4 w-full h-full">
           {slides.map((slide, index) => (
