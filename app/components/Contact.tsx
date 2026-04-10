@@ -57,7 +57,7 @@ const Contact = () => {
                 <span className="p-1 border border-yellow-400 rounded-sm">
                   <MapPin size={18} className="text-yellow-400" />
                 </span>
-                <span className="text-sm">طنطا - شارع سعيد - كلية التجارة</span>
+                <span className="text-sm">مدينة رئيسية – شارع مركزي – مؤسسة تعليمية</span>
               </div>
               <div className="flex items-center gap-3">
                 <span className="p-1 border border-cyan-400 rounded-sm">
