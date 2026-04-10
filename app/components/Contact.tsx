@@ -30,9 +30,15 @@ const Contact = () => {
   return (
     <footer className="w-full font-sans text-white overflow-hidden transition-colors duration-500" dir="rtl">
       {/* Top Accent Bar */}
-      <div className="h-12 bg-cyan-400 dark:bg-cyan-600 w-full transition-colors"></div>
+      <div 
+          
+      className="h-12 bg-cyan-400 dark:bg-cyan-600 w-full transition-colors"></div>
 
-      <div className="flex flex-col lg:flex-row min-h-[500px]">
+      <motion.div 
+            initial={{opacity:0,  y: -40 }}
+            whileInView={{opacity:1, y: 0 }}
+            transition={{ duration: 0.5 }}
+             className="flex flex-col lg:flex-row min-h-[500px]">
         {/* Left Section: About and Quick Links (60% width) */}
         <div className="lg:w-3/5 bg-[#1a2e6b] dark:bg-slate-900 p-10 flex flex-col md:flex-row gap-10 transition-colors">
           {/* About Us Column */}
@@ -125,7 +131,7 @@ const Contact = () => {
         <div className="lg:w-[10%] bg-[#1a2e6b] dark:bg-slate-900 flex flex-col items-center justify-center gap-4 py-10 transition-colors">
              {/* Social items would go here */}
         </div>
-      </div>
+      </motion.div>
 
       {/* Copyright Footer */}
       <div className="bg-[#111f4d] dark:bg-slate-900 py-6 px-10 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 border-t border-white/5 transition-colors">

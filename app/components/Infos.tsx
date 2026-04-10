@@ -20,11 +20,15 @@ const Infos = () => {
 
   return (
     <div
+    
       className="flex flex-col lg:flex-row w-full min-h-screen bg-gray-50 dark:bg-slate-950 font-sans transition-colors duration-500"
       id="services"
     >
       {/* Left Section: Text and Grid */}
-      <div
+      <motion.div
+      initial={{opacity:0,  y: 40 }}
+      whileInView={{opacity:1, y: 0 }}
+      transition={{ duration: 0.5 }}
         className={`w-full lg:w-1/2 p-6 md:p-12 lg:p-16 flex flex-col justify-center transition-all duration-1000 transform ${
           mounted ? "translate-x-0 opacity-100" : "-translate-x-20 opacity-0"
         }`}
@@ -66,20 +70,27 @@ const Infos = () => {
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
 
       {/* Right Section: Background Image with Floating Card */}
-      <div className="w-full lg:w-1/2 relative min-h-[600px] lg:min-h-full overflow-hidden">
+      <div 
+      
+      className="w-full lg:w-1/2 relative min-h-[600px] lg:min-h-full overflow-hidden">
         <img
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-[10s] hover:scale-110"
           src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80"
           alt="Workspace Background"
         />
         {/* Overlay adapted for Dark Mode */}
-        <div className="absolute inset-0 bg-black/30 dark:bg-slate-950/40"></div>
+        <div 
+        className="absolute inset-0 bg-black/30 dark:bg-slate-950/40"></div>
 
         {/* Floating Card Container with Entrance Animation */}
-        <div className="relative z-10 flex items-center justify-center h-full p-4 md:p-12 lg:p-20">
+        <motion.div 
+      initial={{  y: -40 }}
+      whileInView={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+        className="relative z-10 flex items-center justify-center h-full p-4 md:p-12 lg:p-20">
           <div
             className={`bg-white dark:bg-slate-900/90 dark:backdrop-blur-xl w-full max-w-2xl p-6 md:p-10 shadow-2xl rounded-sm flex flex-col transition-all duration-1000 delay-500 transform ${
               mounted ? "scale-100 opacity-100" : "scale-90 opacity-0"
@@ -129,7 +140,7 @@ const Infos = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

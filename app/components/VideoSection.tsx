@@ -25,9 +25,7 @@ const VideoSection = () => {
 
   return (
     <motion.section
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+     
       className="relative flex flex-col lg:flex-row justify-center items-center gap-10 lg:gap-x-16 min-h-screen w-full px-6 py-12 overflow-hidden bg-white dark:bg-slate-950 transition-colors duration-500"
       id="video"
     >
@@ -39,7 +37,10 @@ const VideoSection = () => {
       />
 
       {/* Video Container Area with Entrance Animation */}
-      <div
+      <motion.div
+       initial={{  y: 40 }}
+      whileInView={{ y: 0 }}
+      transition={{ duration: 0.5 }}
         className={`relative w-full md:w-3/4 lg:w-[45%] aspect-video bg-white/40 dark:bg-slate-800/40 p-3 md:p-5 rounded-2xl z-10 transition-all duration-1000 transform
           ${mounted ? "translate-x-0 opacity-100" : "-translate-x-20 opacity-0"}
           shadow-[8px_8px_0px_rgba(0,0,0,0.2)] md:shadow-[15px_15px_0px_rgba(0,0,0,0.3)] dark:md:shadow-[15px_15px_0px_rgba(79,70,229,0.2)]`}
@@ -72,10 +73,13 @@ const VideoSection = () => {
             )}
           </button>
         </div>
-      </div>
+      </motion.div>
 
       {/* Content Area with Staggered Entrance */}
-      <div
+      <motion.div
+       initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
         className={`w-full lg:w-[40%] text-center lg:text-right z-10 transition-all duration-1000 delay-300 transform
           ${mounted ? "translate-x-0 opacity-100" : "translate-x-20 opacity-0"}`}
       >
@@ -102,7 +106,7 @@ const VideoSection = () => {
             مزيد من الفيديوهات
           </button>
         </div>
-      </div>
+      </motion.div>
     </motion.section>
   );
 };

@@ -42,7 +42,10 @@ export default function ImageGallery() {
   }, []);
 
   return (
-    <div
+    <motion.div
+    initial={{opacity:0}}
+          whileInView={{opacity:"100%"}}
+          transition={{duration:1, ease:"easeInOut"}}
       className="relative flex flex-col md:flex-row w-full min-h-screen overflow-hidden transition-colors duration-500"
       id="album"
     >
@@ -63,7 +66,10 @@ export default function ImageGallery() {
       </div>
 
       {/* Center Gallery Card */}
-      <div
+      <motion.div
+      initial={{width:0}}
+          whileInView={{width:"75%"}}
+          transition={{duration:0.8, ease:"easeInOut"}}
         className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[45%] md:-translate-y-1/2 w-[92%] md:w-[80%] lg:w-[75%] h-[65%] md:h-[70%] bg-white dark:bg-slate-800 p-4 md:p-8 rounded-3xl shadow-2xl z-20 transition-all duration-1000 ${mounted ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
       >
         {/* Accordion Container */}
@@ -127,7 +133,7 @@ export default function ImageGallery() {
             </button>
           ))}
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }

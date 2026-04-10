@@ -35,6 +35,7 @@ const Statistics = () => {
 
   return (
     <section
+     
       id="statistics"
       className="min-h-7xl bg-[#0f1035] dark:bg-slate-950 text-white py-20 px-10 flex flex-col items-center transition-colors duration-500"
     >
@@ -53,7 +54,10 @@ const Statistics = () => {
       {/* Stats Cards Grid */}
       <div className="flex flex-wrap justify-center gap-8 max-w-7xl">
         {statsData.map((stat, index) => (
-          <div
+          <motion.div
+          initial={{width:0}}
+          whileInView={{width:220}}
+          transition={{duration:0.5, ease:"easeInOut"}}
             key={stat.id}
             style={{ transitionDelay: `${index * 100}ms` }}
             className={`relative w-56 h-80 flex flex-col items-center justify-between p-8 rounded-[40px] border border-pink-600/50 dark:border-indigo-500/30 bg-[#1a1b4b]/40 dark:bg-slate-900/50 backdrop-blur-md transition-all duration-700 transform hover:-translate-y-3 hover:shadow-2xl hover:shadow-indigo-500/20
@@ -79,7 +83,7 @@ const Statistics = () => {
               className={`absolute bottom-4 left-1/2 -translate-x-1/2 w-1/2 h-1.5 rounded-full shadow-lg transition-colors
               ${index % 2 === 0 ? "bg-orange-500 shadow-orange-500/50" : "bg-pink-500 shadow-pink-500/50"}`}
             ></div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

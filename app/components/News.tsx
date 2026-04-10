@@ -1,7 +1,5 @@
 "use client";
-
-import { ArrowRight } from "lucide-react";
-import Image from "next/image";
+import {motion} from "framer-motion"
 
 interface NewsCard {
   id: string;
@@ -49,9 +47,12 @@ export default function LatestNewsSection() {
       </h3>
       <div className="flex items-center justify-center gap-8 flex-wrap">
         {newsCards.map((card) => (
-          <div
+          <motion.div
+           initial={{x:100}}
+          whileInView={{x:0}}
+          transition={{duration:0.8, ease:"easeInOut"}}
             key={card.id}
-            className="p-2 border border-dashed border-white dark:border-gray-500 border-2 rounded-full w-fit h-[75%]"
+            className="hover:shadow-2xl hover:shadow-black hover:scale-105 transition-all ease-in-out p-2 border border-dashed border-white dark:border-gray-500 border-2 rounded-full w-fit h-[75%]"
           >
             <div className="bg-white dark:bg-gray-800 rounded-full h-full p-2 justify-center">
               <div className="bg-pink-700 dark:bg-pink-800 rounded-full pb-3">
@@ -72,7 +73,7 @@ export default function LatestNewsSection() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
