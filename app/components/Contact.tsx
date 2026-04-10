@@ -65,7 +65,7 @@ const Contact = () => {
                 <span className="p-1 border border-pink-500 rounded-sm">
                   <Mail size={18} className="text-pink-500" />
                 </span>
-                <span className="text-sm">support@crystal-template.com</span>
+                <span className="text-sm">support@template.com</span>
               </div>
             </div>
           </div>
@@ -138,7 +138,7 @@ const Contact = () => {
         </div>
         
         <div className="mt-4 md:mt-0 font-medium">
-          تصميم وبرمجة بواسطة <span className="text-white">Crystal Dev Team</span> © {new Date().getFullYear()}
+          تصميم وبرمجة بواسطة <span className="text-white"> Dev Team</span> © {new Date().getFullYear()}
         </div>
 
         <div className="flex gap-4 mt-4 md:mt-0">

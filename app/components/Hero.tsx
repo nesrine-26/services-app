@@ -61,6 +61,8 @@ const Hero = () => {
   return (
     <section className="relative flex-1 flex flex-col w-full overflow-hidden text-white font-sans min-h-[calc(100vh-70px)] transition-colors duration-1000">
       {/* Dynamic Background */}
+<div className="absolute   z-0 hidden lg:block bg-[radial-gradient(circle,_#3b82f6_1px,_transparent_1px)]  bg-[size:24px_24px]  h-screen w-screen   dark:bg-[radial-gradient(circle,_#fff_1px,_transparent_1px)]"></div>
+
       <AnimatePresence mode="wait">
         <motion.div
           key={activeSlideIndex}
@@ -156,7 +158,7 @@ const Hero = () => {
               >
                 <div className="-rotate-45 flex flex-col items-center">
                   <MapPin size={24} className="mb-1" />
-                  <span className="text-[10px] font-bold uppercase tracking-tighter">Crystal</span>
+                  <span className="text-[10px] font-bold uppercase tracking-tighter">place</span>
                 </div>
               </motion.div>
             </div>
