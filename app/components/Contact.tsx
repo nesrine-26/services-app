@@ -29,11 +29,11 @@ const Contact = () => {
   return (
     <footer className="w-full font-sans text-white overflow-hidden" dir="rtl">
       {/* Top Accent Bar */}
-      <div className="h-12 bg-cyan-400 w-full"></div>
+      <div className="h-12 bg-cyan-400 dark:bg-slate-700 w-full"></div>
 
       <div className="flex flex-col lg:flex-row min-h-[500px]">
         {/* Left Section: About and Quick Links (60% width) */}
-        <div className="lg:w-3/5 bg-[#1a2e6b] p-10 flex flex-col md:flex-row gap-10">
+        <div className="lg:w-3/5 bg-[#1a2e6b] dark:bg-slate-900 p-10 flex flex-col md:flex-row gap-10">
           {/* About Us Column */}
           <div className="md:w-1/2 flex flex-col gap-6">
             <div className="flex items-center gap-2 text-cyan-400">
@@ -79,7 +79,7 @@ const Contact = () => {
               {quickLinks.map((link, idx) => (
                 <button
                   key={idx}
-                  className="bg-[#111f4d] py-2 px-1 text-xs hover:bg-cyan-600 transition-colors"
+                  className="bg-[#111f4d] dark:bg-slate-700 py-2 px-1 text-xs hover:bg-cyan-600 transition-colors"
                 >
                   {link}
                 </button>
@@ -105,7 +105,7 @@ const Contact = () => {
 
         {/* Middle Section: Photo Gallery (30% width) */}
         <div className="lg:w-[30%] bg-[#fbc531] p-10 flex flex-col gap-6">
-          <div className="flex items-center gap-2 text-[#1a2e6b]">
+          <div className="flex items-center gap-2 text-[#1a2e6b] ">
             <Quote size={20} className="rotate-180" />
             <h3 className="text-xl font-bold">ألبوم الصور</h3>
           </div>
@@ -122,7 +122,7 @@ const Contact = () => {
         </div>
 
         {/* Right Section: Social Sidebar (10% width) */}
-        <div className="lg:w-[10%] bg-[#1a2e6b] flex flex-col items-center justify-center gap-4 py-10">
+        <div className="lg:w-[10%] bg-[#1a2e6b] dark:bg-slate-900 flex flex-col items-center justify-center gap-4 py-10">
           {/* <div className="bg-[#3b5998] p-3 cursor-pointer hover:scale-110 transition-transform">
             <Facebook size={24} />
           </div>
@@ -139,7 +139,7 @@ const Contact = () => {
       </div>
 
       {/* Copyright Footer */}
-      <div className="bg-[#111f4d] py-6 px-10 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 border-t border-white/5">
+      <div className="bg-[#111f4d] dark:bg-slate-900 py-6 px-10 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 border-t border-white/5">
         <div className="flex gap-4">
           <span>سياسة الخصوصية</span>
           <span>|</span>

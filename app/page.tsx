@@ -12,16 +12,16 @@ import Contact from "./components/Contact";
 
 export default function Home() {
   return (
-    <div className="overflow-hidden w-full ">
-      <Header />
+    <div className=" w-full ">
+      <Header  />
       <Hero />
       <About />
       <LatestNewsSection />
-      <VideoSection />
-      <ImageGallery />
       <Statistics />
-      <Infos />
+      <ImageGallery />
       <Links />
+      <VideoSection />
+      <Infos />
       <Contact />
     </div>
   );
